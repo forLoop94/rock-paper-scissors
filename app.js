@@ -2,7 +2,7 @@ console.log("hello worl!");
 function getComputerChoice() {
     let randomInteger = getRndInteger(1, 4);
     let computerChoice = (randomInteger === 1) ? "rock" : (randomInteger === 2) ? "paper" : (randomInteger === 3) ? "scissors" : "";
-    console.log(computerChoice);
+    // console.log(computerChoice);
     return computerChoice;
 }
 
@@ -11,7 +11,7 @@ function getRndInteger(min, max) {
 }
 
 function playOneRound(playerSelection, computerSelection) {
-    // playerSelection = prompt("Hey badass, choose between rock, paper or scissors");
+
     let result;
     if (playerSelection === "rock" && computerSelection === "paper") {
         result = "computer wins!";
@@ -31,4 +31,33 @@ function playOneRound(playerSelection, computerSelection) {
     return result;
 }
 
-console.log(playOneRound(prompt("Hey badass, choose between rock, paper and scissors"), getComputerChoice()));
+function game() {
+    let countWins = 0;
+    let countLoses = 0;
+    let output;
+    for (let i = 1; i <= 5; i++) {
+        output = playOneRound(prompt("Hey! choose between rock, paper and scissors"), getComputerChoice());
+        console.log(output);
+        if (output === "you win!") {
+            countWins++;
+        } else {
+            if (output === "computer wins!") {
+                countLoses++;
+            }
+        }
+    }
+    let finalText;
+    if (countWins === countLoses) {
+        finalText = "It's a tie!";
+    } else {
+        if (countWins > countLoses) {
+            finalText = "Congratulations, you won!";
+        } else {
+            finalText = "Sorry, try again!";
+        }
+    }
+    return finalText;
+}
+
+console.log(game())
+

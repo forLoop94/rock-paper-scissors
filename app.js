@@ -11,6 +11,7 @@ function getRndInteger(min, max) {
 }
 
 function playOneRound(playerSelection, computerSelection) {
+    // playerSelection = prompt("Hey badass, choose between rock, paper or scissors");
     let result;
     if (playerSelection === "rock" && computerSelection === "paper") {
         result = "computer wins!";
@@ -30,8 +31,4 @@ function playOneRound(playerSelection, computerSelection) {
     return result;
 }
 
-console.log(playOneRound("scissors", getComputerChoice()));
-console.log(playOneRound("scissors", getComputerChoice()));
-console.log(playOneRound("scissors", getComputerChoice()));
-console.log(playOneRound("scissors", getComputerChoice()));
-console.log(playOneRound("scissors", getComputerChoice()));
+console.log(playOneRound(prompt("Hey badass, choose between rock, paper and scissors"), getComputerChoice()));
